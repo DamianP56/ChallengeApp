@@ -25,6 +25,28 @@
             this.Surname = surname;
             this.Age = age;
         }
+        public string Name { get; set; }
+
+        public string Surname { get; set; }
+
+        public string Age { get; set; }
+
+        public int Result
+        {
+            get
+            {
+                return this.score.Sum();
+            }
+        }
+
+        public void AddScore(int number)
+        {
+            this.score.Add(number);
+        }
+    }
+}
+
+
 
 
 
