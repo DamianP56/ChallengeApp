@@ -1,71 +1,92 @@
 ﻿namespace ChallengeApp.Tests
 {
+
     public class TypeTest
     {
         [Test]
-        public void TwoNameAreLookSame()
+        public void WhenYouCollectGrades_ShouldReturnAverage()
         {
             //arrange
-            string number1 = ("Jacek");
-            string number2 = ("Jacek");
+            var employee = new Employee("Sebastian", "Maczka");
+            employee.AddGrade(20);
+            employee.AddGrade(15);
+            employee.AddGrade(24);
             //act
+            var statistics = employee.GetStatistics();
 
-            //assert
-            Assert.AreEqual(number1, number2);
+            //assert 
+            Assert.AreNotEqual(20, statistics.Average);
         }
+
         [Test]
-        public void CompareOfIncorrectNumbers()
+        public void WhenYouCollectGrades_ShouldReturnMin()
         {
             //arrange
-            int number1 = 1;
-            int number2 = 2;
-
+            var employee = new Employee("Sebastian", "Maczka");
+            employee.AddGrade(20);
+            employee.AddGrade(15);
+            employee.AddGrade(24);
             //act
+            var statistics = employee.GetStatistics();
 
-            //assert
-            Assert.AreNotEqual(number1, number2);
+            //assert 
+            Assert.AreEqual(15, statistics.Min);
         }
-        [Test]
 
-        public void CompareNumbersArenotEqual()
+        [Test]
+        public void WhenYouCollectGrades_ShouldReturnMax()
         {
             //arrange
-            float A = 15.55f;
-            float B = 10.2f;
+            var employee = new Employee("Sebastian", "Maczka");
+            employee.AddGrade(20);
+            employee.AddGrade(15);
+            employee.AddGrade(24);
             //act
+            var statistics = employee.GetStatistics();
 
-            //assert
-            Assert.AreNotEqual(A, B);
-            }
-    
-        [Test]
-        public void GetUserShouldReturnDiffrent()
-{
-        // arrange
-        var user1 = new User("Damian", "trąbka");
-        var user2 = new User("Damian", "trąbka");
-        // act
-
-        // assert
-        Assert.AreNotEqual(user1, user2);
-}
-
-private User GetUser(string name)
-{
-    return new User(name);
-}
+            //assert 
+            Assert.AreEqual(24, statistics.Max);
+        }
     }
 }
-
-
-           
-           
+    
 
 
 
 
 
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
