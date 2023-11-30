@@ -1,15 +1,20 @@
-﻿using ChallengeApp;
+﻿
+using ChallengeApp;
 
 var employee = new Employee("Sebastian", "Maczka");
-employee.AddGrade(20);
-employee.AddGrade(15);
-employee.AddGrade(24);
+employee.AddGrade("141");
+employee.AddGrade("Sebastian");
+employee.AddGrade(99);
+employee.AddGrade(3.44);
+employee.AddGrade(18.2);
 
 var statistics = employee.GetStatistics();
 
-Console.WriteLine($"Środkowa ocena; {statistics.Average:N2}");
+
+Console.WriteLine($"środkowa ocena; {statistics.Average:n2}");
 Console.WriteLine($"niska: {statistics.Min}");
 Console.WriteLine($"bardzo duża: {statistics.Max}");
+
 
 
 
