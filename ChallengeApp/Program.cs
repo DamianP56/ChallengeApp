@@ -7,6 +7,8 @@ employee.AddGrade("Sebastian");
 employee.AddGrade(99);
 employee.AddGrade(3.44);
 employee.AddGrade(18.2);
+employee.AddGrade(Math.PI);
+employee.AddGrade(MathF.PI);
 
 var statistics = employee.GetStatistics();
 
