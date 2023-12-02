@@ -20,8 +20,8 @@
         public string Surname { get; private set; }
 
         public void AddGrade(float grade)
-        {          
-            
+        {
+
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
@@ -30,7 +30,7 @@
             {
                 Console.WriteLine("invalid grade value");
             }
-        }    
+        }
         public void AddGrade(double grade)
         {
             var value = (float)grade;
@@ -53,25 +53,32 @@
                 Console.WriteLine("String is not float");
             }
         }
-          public Statistics GetStatistics()
+        public Statistics GetStatistics()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            foreach (var grade in this.grades)
             {
-                var statistics = new Statistics();
-                statistics.Average = 0;
-                statistics.Max = float.MinValue;
-                statistics.Min = float.MaxValue;
-
-                foreach (var grade in this.grades)
-                {
-                    statistics.Max = Math.Max(statistics.Max, grade);
-                    statistics.Min = Math.Min(statistics.Min, grade);
-                    statistics.Average += grade;
-                }
-
-                statistics.Average /= this.grades.Count;
-                return statistics;
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
             }
+
+            statistics.Average /= this.grades.Count;
+            return statistics;
         }
     }
+}
+
+
+
+
+            
+
+       
 
 
 
