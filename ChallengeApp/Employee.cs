@@ -55,24 +55,7 @@ namespace ChallengeApp
                 Console.WriteLine("String is not float");
             }
         }
-        public Statistics GetStatistics()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-
-            foreach (var grade in this.grades)
-            {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
-            }
-
-            statistics.Average /= this.grades.Count;
-            return statistics;
-        }
-
+        
         public Statistics GetStatisticsWithForEach()
         {
             var statistics1 = new Statistics();
@@ -136,7 +119,7 @@ namespace ChallengeApp
 
             var i = 0;
 
-            while (i < this.grades.Count);
+            while (i < this.grades.Count)
             {
                 statistics4.Max = Math.Max(statistics4.Max, this.grades[i]);
                 statistics4.Min = Math.Min(statistics4.Min, this.grades[i]);
