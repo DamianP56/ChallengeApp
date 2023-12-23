@@ -1,16 +1,9 @@
-﻿using System;
-using System.Reflection;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
     public class Employee
     {
-        private List<float> grades = new List<float>();
-
-        public Employee(string name)
-        {
-            Name = name;
-        }
+       private List<float> grades = new List<float>();
+        
         public Employee(string name, string surname)
         {
             this.Name = name;
@@ -30,50 +23,122 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("invalid grade value");
+                throw new Exception("invalid grade value");
             }
         }
         public void AddGrade(double grade)
         {
-            var value = (float)grade;
-            this.AddGrade(value);
+            float gradeAsfloat = (float)grade;
+            this.AddGrade(gradeAsfloat);
         }
 
-        public void AddGrade(long grade)
+        public void AddGrade(int grade)
         {
-            var value = (float)grade;
-            this.AddGrade(value);
+            float gradeAsfloat = (float)grade;
+            this.AddGrade(gradeAsfloat);
         }
+
+        public void AddGrade(char grade)
+        {
+            switch(grade)
+            {
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    throw new Exception("Wrong Number");
+            }
+        }
+
         public void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
             {
                 this.AddGrade(result);
             }
-            else
+            else if(char.TryParse(grade, out char charGrade))            
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String in not float");
             }
         }
 
-        public Statistics GetStatisticsWithForEach()
+        public Statistics GetStatistics()
         {
-            var statistics1 = new Statistics();
-            statistics1.Average = 0;
-            statistics1.Max = float.MinValue;
-            statistics1.Min = float.MaxValue;
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            
             foreach (var grade in this.grades)
             {
-                statistics1.Max = Math.Max(statistics1.Max, grade);
-                statistics1.Min = Math.Min(statistics1.Min, grade);
-                statistics1.Average += grade;
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
             }
 
-            statistics1.Average /= this.grades.Count;
-            return statistics1;
+            statistics.Average /= this.grades.Count; 
+            switch (statistics.Average)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+            }
+            
+            return statistics;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
