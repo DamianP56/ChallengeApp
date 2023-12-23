@@ -63,7 +63,7 @@
                     this.grades.Add(20);
                     break;
                 default:
-                    throw new Exception("Wrong Number");
+                    throw new Exception("Wrong Letter");
             }
         }
 

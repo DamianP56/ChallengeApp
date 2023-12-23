@@ -7,11 +7,11 @@ Console.WriteLine("Podaj ocenę pracownika:");
 
 var employee = new Employee("Adam", "Kamizelich");
 
-while(true)
+while (true)
 {
     Console.WriteLine("Nacisnij q aby wyjść:");
     var input = Console.ReadLine();
-    if(input == "q")
+    if (input == "q")
     {
         break;
     }
@@ -20,10 +20,11 @@ while(true)
     {
         employee.AddGrade(input);
     }
-    catch(Exception e)
+    catch (Exception e)
     {
         Console.WriteLine($"Something went wrong: {e.Message}");
     }
+    Console.WriteLine($"Enter number or click q if you want finish task!");
 }
 
 var statistics = employee.GetStatistics();
