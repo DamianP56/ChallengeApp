@@ -15,7 +15,7 @@ namespace ChallengeApp
         {
             using (var writer = File.AppendText(fileName))
             {
-                writer.Write(grade);
+                writer.WriteLine(grade);
             }
         }
         public override void AddGrade(double grade)
