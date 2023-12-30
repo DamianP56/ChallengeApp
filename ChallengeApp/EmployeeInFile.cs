@@ -19,13 +19,13 @@
         public override void AddGrade(double grade)
         {
             float gradeAsfloat = (float)grade;
-            this.AddGrade(gradeAsfloat);
+            AddGrade(gradeAsfloat);
         }
 
         public override void AddGrade(int grade)
         {
             float gradeAsfloat = (float)grade;
-            this.AddGrade(gradeAsfloat);
+            AddGrade(gradeAsfloat);
         }
         public override void AddGrade(char grade)
         {
@@ -59,7 +59,7 @@
         {
             if (float.TryParse(grade, out float result))
             {
-                this.AddGrade(result);
+                AddGrade(result);
             }
             else if (char.TryParse(grade, out char charGrade))
             {
