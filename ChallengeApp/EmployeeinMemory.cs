@@ -3,13 +3,25 @@
 
     public class EmployeeinMemory : EmployeBase
     {
+        public delegate string WriteMessage(string message);
 
         private List<float> grades = new List<float>();
 
         public EmployeeinMemory(string name, string surname)
             : base(name, surname)
         {
+            WriteMessage del;
+            del = WriteMessageInConsole;
+            del("Moj tekst");
+            WriteMessageInConsole("Moj tekst2");
         }
+
+        private void WriteMessageInConsole(string message)
+        {
+            Console.WriteLine(message);
+        }
+        
+    
         public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
