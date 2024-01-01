@@ -4,17 +4,26 @@
     public class EmployeeinMemory : EmployeBase
     {
 
+        public event GradeAddedDelegate GradeAdded;
+
         private List<float> grades = new List<float>();
 
         public EmployeeinMemory(string name, string surname)
             : base(name, surname)
         {
+            
         }
+
         public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
-                AddGrade(grade);
+                this.grades.Add(grade);
+
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {

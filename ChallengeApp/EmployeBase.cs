@@ -3,10 +3,14 @@
    
     public abstract class EmployeBase : IEmployee
     {
+
+        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+        public event GradeAddedDelegate GradeAdded;
+
         public EmployeBase(string name, string surname)
         {
-            Name = name;
-            Surname = surname;
+        
         }
 
         public string Name { get; private set; }
