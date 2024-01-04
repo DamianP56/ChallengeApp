@@ -12,7 +12,7 @@ void EmployeGradeAded(object sender, EventArgs args)
     Console.WriteLine("Dodano nowa ocene");
 }
 
-employee.AddGrade(0.6f);
+employee.AddGrade("10");
 employee.AddGrade("18");
 employee.AddGrade("10");
 
