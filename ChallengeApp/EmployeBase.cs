@@ -6,8 +6,6 @@
 
         public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-        public event GradeAddedDelegate GradeAdded;
-
         public EmployeBase(string name, string surname)
         {
         
@@ -15,7 +13,9 @@
 
         public string Name { get; private set; }
         public string Surname { get; private set; }
-        
+
+        public event GradeAddedDelegate GradeAdded;
+
         public abstract void AddGrade(float grade);
 
 

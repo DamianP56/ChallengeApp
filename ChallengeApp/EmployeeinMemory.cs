@@ -5,6 +5,7 @@
     {
 
         public event GradeAddedDelegate GradeAdded;
+      
 
         private List<float> grades = new List<float>();
 

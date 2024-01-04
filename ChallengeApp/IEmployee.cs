@@ -4,6 +4,9 @@
     {
         string Name { get; }
         string Surname { get; }
+
+        event EmployeBase.GradeAddedDelegate GradeAdded;
+
         void AddGrade(float grade);
 
         void AddGrade(double grade);
