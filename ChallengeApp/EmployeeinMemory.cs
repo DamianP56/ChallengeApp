@@ -3,6 +3,7 @@
 
     public class EmployeeinMemory : EmployeBase
     {
+        public delegate string WriteMessage(string message);
 
         public event GradeAddedDelegate GradeAdded;
       
@@ -12,7 +13,6 @@
         public EmployeeinMemory(string name, string surname)
             : base(name, surname)
         {
-            
         }
 
         public override void AddGrade(float grade)
